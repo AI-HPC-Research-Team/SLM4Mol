@@ -42,27 +42,27 @@ Our study includes tests across eight primary model architectures, featuring com
 
 ![Overview of Evaluations](figures/figure4.png)
 
-- `ckpts` - This folder contains checkpoints for finetuning
-    - image_ckpts
-        - [Swin Transformer-SwinOCSR](https://github.com/suanfaxiaohuo/SwinOCSR)
-        - [Swin Transformer](https://huggingface.co/microsoft/swin-tiny-patch4-window7-224)
-        - [ResNet](https://huggingface.co/microsoft/resnet-50)
-        - [ViT](https://huggingface.co/google/vit-base-patch16-224)
-    - text_ckpts
-        - Encoder-only
-            - [BERT](https://huggingface.co/bert-base-uncased)
-            - [SciBERT](https://huggingface.co/allenai/scibert_scivocab_uncased)
-            - [RoBERTa](https://huggingface.co/roberta-base)
-            - [ChemBERTa](https://huggingface.co/seyonec/ChemBERTa-zinc-base-v1)
-        - Decoder-only
-            - [GPT-2](https://huggingface.co/gpt2)
-            - [GPTNEO](https://huggingface.co/EleutherAI/gpt-neo-125m)
-            - [BioGPT](https://huggingface.co/microsoft/biogpt)
-        - Encoder-Decoder
-            - [BART](https://huggingface.co/facebook/bart-base)
-            - [T5](https://huggingface.co/google/flan-t5-base)
-            - [T511](https://huggingface.co/google/flan-t5-base)
-            - [MolT5-base](https://huggingface.co/laituan245/molt5-base)
+### `ckpts` 
+- image_ckpts
+    - [Swin Transformer-SwinOCSR](https://github.com/suanfaxiaohuo/SwinOCSR)
+    - [Swin Transformer](https://huggingface.co/microsoft/swin-tiny-patch4-window7-224)
+    - [ResNet](https://huggingface.co/microsoft/resnet-50)
+    - [ViT](https://huggingface.co/google/vit-base-patch16-224)
+- text_ckpts
+    - Encoder-only
+        - [BERT](https://huggingface.co/bert-base-uncased)
+        - [SciBERT](https://huggingface.co/allenai/scibert_scivocab_uncased)
+        - [RoBERTa](https://huggingface.co/roberta-base)
+        - [ChemBERTa](https://huggingface.co/seyonec/ChemBERTa-zinc-base-v1)
+    - Decoder-only
+        - [GPT-2](https://huggingface.co/gpt2)
+        - [GPTNEO](https://huggingface.co/EleutherAI/gpt-neo-125m)
+        - [BioGPT](https://huggingface.co/microsoft/biogpt)
+    - Encoder-Decoder
+        - [BART](https://huggingface.co/facebook/bart-base)
+        - [T5](https://huggingface.co/google/flan-t5-base)
+        - [T511](https://huggingface.co/google/flan-t5-base)
+        - [MolT5-base](https://huggingface.co/laituan245/molt5-base)
 
 ### `datasets`
 - **ChEBI-20-MM**: A comprehensive multi-modal molecular benchmark dataset.
