@@ -45,8 +45,8 @@ Our study includes tests across eight primary model architectures, featuring com
 - `ckpts` - This folder contains checkpoints for finetuning
     - image_ckpts
         - [Swin Transformer-SwinOCSR](https://github.com/suanfaxiaohuo/SwinOCSR)
-        - [Swin Transformer](https://github.com/suanfaxiaohuo/SwinOCSR)
-        - [ResNet](https://huggingface.co/microsoft/swin-base-patch4-window7-224-in22k)
+        - [Swin Transformer](https://huggingface.co/microsoft/swin-tiny-patch4-window7-224)
+        - [ResNet](https://huggingface.co/microsoft/resnet-50)
         - [ViT](https://huggingface.co/google/vit-base-patch16-224)
     - text_ckpts
         - Encoder-only
@@ -119,6 +119,16 @@ Our study includes tests across eight primary model architectures, featuring com
     - `dataset_name`: Specify the dataset for property prediction. Options include `tox21`, `bace`, `bbbp`, `toxcast`, `sider`, `clintox`, `esol`, `lipophilicity`, `freesolv`.
     - `split`: Choose the data splitting method. Options are `scaffold` or `random`.
     - `pool`: Determine the pooling strategy. Choose between `avg` and `max`.
+
+## References
+```
+[1] Xu Z, Li J, Yang Z, et al. SwinOCSR: end-to-end optical chemical structure recognition using a Swin Transformer[J]. Journal of Cheminformatics, 2022, 14(1): 1-13.
+[2] Su B, Du D, Yang Z, et al. A molecular multimodal foundation model associating molecule graphs with natural language[J]. arXiv preprint arXiv:2209.05481, 2022.(https://arxiv.org/abs/2209.05481)
+[3] Edwards C, Lai T, Ros K, et al. Translation between molecules and natural language[J]. arXiv preprint arXiv:2204.11817, 2022.
+[4] Luo Y, Yang K, Hong M, et al. Molfm: A multimodal molecular foundation model[J]. arXiv preprint arXiv:2307.09484, 2023.
+```
+## Acknowledgments
+This project owes its inspiration to the ChEBI-20, a foundational dataset in the field of molecule generation and captioning, initially introduced by MolT5. The development of the ChEBI-20-MM dataset has been further enriched by additional data sourced from PubChem. We extend our sincere gratitude to Hugging Face for providing the initial model weights, which have been instrumental in our development process.
 
 ## Citation
 ```
