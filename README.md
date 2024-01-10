@@ -7,41 +7,53 @@ Here, we address the gap in a comprehensive review of Transformer models and LLM
 ![Overview of tasks in review](figures/figure1.png)
 </br>
 </br>
-**This figure is overview of LLM4Mol**. **a. Molecular internal information**, including sequence and graph structure representations, emphasizes inherent chemical properties and simple topology; **b. Molecular external information**, e.g., images and text descriptions, provide richer details and help the human understanding; **c. Study case**, featuring molecule generation (from image, caption, or both to molecule) and molecule caption (from SMILES, graph, or both to caption). In molecule generation, our model accurately captures the organophosphate oxoanion structure as described in the caption. In comparison, MolT5 incorrectly represents the ring structure, and GPT-4 makes a mistake in the placement of the ketone functional group. GIT-Mol's output differs from the ground truth for the molecule caption task but still provides a correct and meaningful description of the SMILES string.
-
-**The paradigm of the review. a. Molecular modeling and design tasks**, showcasing six task types with their standard modeling methods and data examples. **b. The processes of tasks**, we divide common molecular data into two categories: internal and external information. Internal information, integral to molecular representation, can be converted through various tools. External information is more accessible to human understanding. Additionally, this part highlights the research scope of our review, detailing the input and output for each task.
+**The paradigm of the review**. **a. Molecular modeling and design tasks**, showcasing six task types with their standard modeling methods and data examples. **b. The processes of tasks**, we divide common molecular data into two categories: internal and external information. Internal information, integral to molecular representation, can be converted through various tools. External information is more accessible to human understanding. Additionally, this part highlights the research scope of our review, detailing the input and output for each task.
 
 **Note:** The sections on the ChEBI-20-MM benchmark and Models below describe the contents of the respective directories. Due to size constraints and permissions, some data and ckpts may not be uploaded.
 
 ## ChEBI-20-MM
 **We introduce ChEBI-20-MM, a benchmark developed from the ChEBI-20 dataset, integrating multi-modal data such as InChI, IUPAC, and images.**
 
-`data` - This folder contains the data for finetuning models with Data of SMILES string, IUPAC name, InChI, SELFIES, and caption modalities.
+This folder contains the data for finetuning models with Data of SMILES string, IUPAC name, InChI, SELFIES, and caption modalities.
 - train.csv --26,406 No.
 - validation.csv --3,300 No.
 - test.csv --3,300 No.
-
 `image` - Molecular images of ChEBI-20 from Pubchem
 - cid.png
 
-`MoleculeNet` - This folder contains the data for finetuning GIT-Mol for molecule properties prediction
-- bbbp
-- bace
-- tox21
-- clintox
-- sider
-- toxcast
-- esol
-- freesolv
-- lipophilicity
-
-The ChEBI-20 and MoleculeNet datasets can be downloaded from the following links:
-- [ChEBI-20_data](https://github.com/blender-nlp/MolT5/tree/main/ChEBI-20_data)
+The ChEBI-20-MM and MoleculeNet can be downloaded from the following links:
+- [ChEBI-20-MM](https://huggingface.co/datasets/liupf/ChEBI-20-MM)
 - [MoleculeNet Datasets](https://moleculenet.org/datasets-1)
 
+## Review of Models
+### The developments of Models
+The timeline of the key developments of transformer-based models.
+</br>
+</br>
+![The timeline of the key developments of transformer-based models in molecular modeling and design](figures/figure2.png)
+</br>
+</br>
+
+### Category and Architectures of Models
+\textbf{An overview of category and architectures of models in molecular modeling and design.} \textbf{a.tasks and models}, clarifies the relationship between six downstream tasks and model architectures.
+\textbf{b. Encoder-Decoder Model Architectures}, delineating three main frameworks: (1) \textbf{Text-Text} primarily focused on text translation tasks;
+(2) \textbf{Graph-Text}, predominantly used in contrastive learning frameworks and serving as an encoder for downstream tasks;
+(3) \textbf{Image-Text}, chiefly applied in Molecular Image Recognition tasks.
+</br>
+</br>
+![The timeline of the key developments of transformer-based models in molecular modeling and design](figures/figure3.png)
+</br>
+</br>
 
 ## Evaluation Framework
-
+\textbf{Benchmark Experiments Overview.}
+Our study encompasses tests across eight primary model architectures, each featuring 3-4 common backbone models or composite models within its category.
+The figure annotates the base model parameter size for clarity. In total, \textbf{1263} experimental setups were conducted, demonstrating the adaptability of various model architectures to different task types.
+</br>
+</br>
+![Overview of Evaluations in review](figures/figure4.png)
+</br>
+</br>
 - `ckpts` - This folder contains checkpoints for finetuning
     - image_ckpts
         - [Swin Transformer-SwinOCSR](https://github.com/suanfaxiaohuo/SwinOCSR)
@@ -50,7 +62,7 @@ The ChEBI-20 and MoleculeNet datasets can be downloaded from the following links
         - [ViT](https://huggingface.co/google/vit-base-patch16-224)
     - text_ckpts
         - Encoder-only
-            - []
+            - [SciBERT](https://huggingface.co/allenai/scibert_scivocab_uncased)
             - []
             - []
             - []
@@ -62,44 +74,37 @@ The ChEBI-20 and MoleculeNet datasets can be downloaded from the following links
         - Encoder-Decoder
             - [BART]
             - [T5]
-            - [T5]
-            - [] 
-        
-    - [MolT5-base](https://huggingface.co/laituan245/molt5-base)
-    - [SciBERT](https://huggingface.co/allenai/scibert_scivocab_uncased)
-- `configs`
-    - config.json - Config file of this model
-    - deepspeed_config.json - Config file of deepspeed in Accelerate
-- `models`
-    - GIT_Former.py - Code of GIT-Former
-    - momu.py - Code of the graph encoder
-    - momu_gnn.py - Code of the graph encoder
-    - swin_transformer.py - Code of the image encoder
-    - model_pretrain.py - Code of the pretraining model
-    - model_finetune.py - Code of the finetuning model
-- `dataset`
-    - dataset.py
-    - graph_featurizer.py
-- `utils`
-    - utils.py
+            - [T511]
+            - [MolT5-base](https://huggingface.co/laituan245/molt5-base)
+- `datasets`
+    - ChEBI-20-MM - Multi-modal molecular benchmark
+    - mpp - MoleculeNet benchmark
+- `src`
+    - `evaluations`
+        - fingerprint_metrics.py
+        - text_translation_metrics.py
+        - mol_translation_metrics.py
+    - `feature` -Embedding methods
+        - base_featurizer.py
+        - graph_featurizer.py - Graph embedding
+    - `models`
+        -'molecule' - Models of single-modal
+        -'multimodal' - Models of multi-modal
+        - metric.py - Metric loading
+        - __init__.py - Model initialization
+        - model_manager.py - Model loading
+    - `utils`
+        - __init__.py - Common tool initialization
+        - xutils.py - Special tool initialization
+    - `tasks`
+        - dataset_manager.py - Code of ChEBI-20-MM dataloader
+        - task_manager.py - Code of text generation tasks
+        - mol_retrieval.py - Code of retrieval task
+        - MoleculeNet_loader.py - Code of MoleculeNet dataloader
+        - splitters.py - Code of data splitting
+        - MPP.py - Code of molecular property predictions
 
-## Training
-`GIT-MOL`
-- `evaluations` - Evaluations of molecule translation tasks
-    - fingerprint_metrics.py
-    - text_translation_metrics.py
-    - mol_translation_metrics.py
-- `train`
-    - pretrain.py
-    - `finetune`
-        - molecule_translation.py - Finetuning of the molecule translation task
-        - `property_prediction`
-            - finetune.py - Finetuning of molecule properties prediction task
-            - model.py
-            - splitters.py
-            - loader.py
-
-**Below are the specific parameter explanations for the `property_prediction` task:**
+**Below are the specific parameter explanations for tasks:**
 ### property_prediction -- finetune.py 
 - `--modals`  
   Modalities used in this task contain graph2d, SMILES, or both.
