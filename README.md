@@ -63,34 +63,35 @@ Our study includes tests across eight primary model architectures, featuring com
             - [T5](https://huggingface.co/google/flan-t5-base)
             - [T511](https://huggingface.co/google/flan-t5-base)
             - [MolT5-base](https://huggingface.co/laituan245/molt5-base)
-- `datasets`
-    - ChEBI-20-MM - A multi-modal molecular benchmark dataset.
-    - mpp - MoleculeNet benchmark dataset.
-- `src`
-    - `evaluations`
-        - fingerprint_metrics.py
-        - text_translation_metrics.py
-        - mol_translation_metrics.py
-    - `feature` -Embedding methods
-        - base_featurizer.py
-        - graph_featurizer.py - Graph embedding
-    - `models`
-        -'molecule' - Models of single-modal
-        -'multimodal' - Models of multi-modal
-        - metric.py - Metric loading
-        - init.py - Model initialization
-        - model_manager.py - Model loading
-    - `utils`
-        - init.py - Common tool initialization
-        - xutils.py - Special tool initialization
-    - `tasks`
-        - dataset_manager.py - Code of ChEBI-20-MM dataloader
-        - task_manager.py - Code of text generation tasks
-        - mol_retrieval.py - Code of retrieval task
-        - MoleculeNet_loader.py - Code of MoleculeNet dataloader
-        - splitters.py - Code of data splitting
-        - MPP.py - Code of molecular property predictions
 
+### `datasets`
+- **ChEBI-20-MM**: A comprehensive multi-modal molecular benchmark dataset.
+- **mpp**: The MoleculeNet benchmark dataset, widely used in molecular studies.
+
+### `src`
+- **`evaluations`**: Scripts for various evaluation metrics.
+    - `fingerprint_metrics.py`: Evaluates molecular fingerprint metrics.
+    - `text_translation_metrics.py`: Metrics for assessing text translation accuracy.
+    - `mol_translation_metrics.py`: Measures the performance of molecular translation tasks.
+- **`feature`**: Contains embedding methods and featurizers.
+    - `base_featurizer.py`: Base class for feature embedding.
+    - `graph_featurizer.py`: Specializes in graph-based molecular embeddings.
+- **`models`**: Core models for single-modal and multi-modal tasks.
+    - `molecule`: Houses models specific to single-modal molecular data.
+    - `multimodal`: Contains models designed for multi-modal tasks.
+    - `metric.py`: Facilitates the loading of various metrics.
+    - `init.py`: Initializes model parameters and settings.
+    - `model_manager.py`: Manages the loading and handling of models.
+- **`utils`**: Utility functions and initializations.
+    - `init.py`: General utility tool initialization.
+    - `xutils.py`: Advanced and specialized utility tool initialization.
+- **`tasks`**: Task-specific scripts and data loaders.
+    - `dataset_manager.py`: DataLoader for the ChEBI-20-MM dataset.
+    - `task_manager.py`: Manages text generation tasks.
+    - `mol_retrieval.py`: Handles the retrieval task operations.
+    - `MoleculeNet_loader.py`: DataLoader for the MoleculeNet dataset.
+    - `splitters.py`: Implements various data splitting methods.
+    - `MPP.py`: Code for molecular property prediction tasks.
 
 **Detailed Parameter Explanations for Tasks**
 
