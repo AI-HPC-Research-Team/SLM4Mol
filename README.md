@@ -1,59 +1,48 @@
 # LLM4Mol
-[![arXiv](https://img.shields.io/badge/arXiv-2308.06911-b31b1b.svg)](https://arxiv.org/abs/2308.06911) 
+[![arXiv](https://img.shields.io/badge/arXiv-2308.06911-b31b1b.svg)](https://arxiv.org/abs/2308.06911)
 
-Here, we address the gap in a comprehensive review of Transformer models and LLMs for molecular modeling and design, specifically in molecular recognition, generation, optimization, captioning, and property prediction. Moreover, this work reviews the models and creates a unified benchmark ChEBI-20-MM to conduct 1263 experiments to identify the key factors influencing the performance of these models. Finally, our review explores an end-to-end visual analysis, uncovering models' chemical intuition.
-</br>
-</br>
+LLM4Mol offers a comprehensive review of Transformer models and Large Language Models (LLMs) in molecular modeling and design. This project focuses on molecular recognition, generation, optimization, captioning, and property prediction. We have created the ChEBI-20-MM benchmark to conduct 1,263 experiments, aiming to identify key factors influencing these models' performance. Our end-to-end visual analysis also uncovers the chemical intuition embedded in these models.
+
 ![Overview of tasks in review](figures/figure1.png)
-</br>
-</br>
-**The paradigm of the review**. **a. Molecular modeling and design tasks**, showcasing six task types with their standard modeling methods and data examples. **b. The processes of tasks**, we divide common molecular data into two categories: internal and external information. Internal information, integral to molecular representation, can be converted through various tools. External information is more accessible to human understanding. Additionally, this part highlights the research scope of our review, detailing the input and output for each task.
 
-**Note:** The sections on the ChEBI-20-MM benchmark and Models below describe the contents of the respective directories. Due to size constraints and permissions, some data and ckpts may not be uploaded.
+**Paradigm of the Review**:
+- **a. Molecular Modeling and Design Tasks**: Showcasing six task types, their standard modeling methods, and data examples.
+- **b. Processes of Tasks**: Dividing molecular data into internal and external categories. Internal information is key to molecular representation and can be converted via various tools, while external information is more accessible and comprehensible to humans. This section outlines the research scope, detailing inputs and outputs for each task.
+
+**Note**: The ChEBI-20-MM benchmark and model sections detail respective directories. Some data and checkpoints might not be available due to size constraints and permissions.
 
 ## ChEBI-20-MM
-**We introduce ChEBI-20-MM, a benchmark developed from the ChEBI-20 dataset, integrating multi-modal data such as InChI, IUPAC, and images.**
+We introduce ChEBI-20-MM, a multi-modal benchmark developed from the ChEBI-20 dataset, integrating data like InChI, IUPAC, and images for a diverse range of molecular tasks.
 
-This folder contains the data for finetuning models with Data of SMILES string, IUPAC name, InChI, SELFIES, and caption modalities.
-- train.csv --26,406 No.
-- validation.csv --3,300 No.
-- test.csv --3,300 No.
-`image` - Molecular images of ChEBI-20 from Pubchem
-- cid.png
+Contents:
+- `train.csv` (26,406 records)
+- `validation.csv` (3,300 records)
+- `test.csv` (3,300 records)
+- `image` folder: Molecular images from Pubchem (e.g., `cid.png`)
 
-The ChEBI-20-MM and MoleculeNet can be downloaded from the following links:
+Download links:
 - [ChEBI-20-MM](https://huggingface.co/datasets/liupf/ChEBI-20-MM)
 - [MoleculeNet Datasets](https://moleculenet.org/datasets-1)
 
 ## Review of Models
-### The developments of Models
-The timeline of the key developments of transformer-based models.
-</br>
-</br>
-![The timeline of the key developments of transformer-based models in molecular modeling and design](figures/figure2.png)
-</br>
-</br>
+### Developments of Models
+A timeline illustrating key developments in transformer-based models for molecular modeling and design.
 
-### Category and Architectures of Models
-\textbf{An overview of category and architectures of models in molecular modeling and design.} \textbf{a.tasks and models}, clarifies the relationship between six downstream tasks and model architectures.
-\textbf{b. Encoder-Decoder Model Architectures}, delineating three main frameworks: (1) \textbf{Text-Text} primarily focused on text translation tasks;
-(2) \textbf{Graph-Text}, predominantly used in contrastive learning frameworks and serving as an encoder for downstream tasks;
-(3) \textbf{Image-Text}, chiefly applied in Molecular Image Recognition tasks.
-</br>
-</br>
-![The timeline of the key developments of transformer-based models in molecular modeling and design](figures/figure3.png)
-</br>
-</br>
+![Timeline of key developments](figures/figure2.png)
+
+### Categories and Architectures of Models
+An overview of model categories and architectures in molecular modeling and design:
+- **a. Tasks and Models**: Relationship between six downstream tasks and model architectures.
+- **b. Encoder-Decoder Model Architectures**: Three main frameworks: Text-Text, Graph-Text, and Image-Text, each suited for specific molecular tasks.
+
+![Model architectures](figures/figure3.png)
 
 ## Evaluation Framework
-\textbf{Benchmark Experiments Overview.}
-Our study encompasses tests across eight primary model architectures, each featuring 3-4 common backbone models or composite models within its category.
-The figure annotates the base model parameter size for clarity. In total, \textbf{1263} experimental setups were conducted, demonstrating the adaptability of various model architectures to different task types.
-</br>
-</br>
-![Overview of Evaluations in review](figures/figure4.png)
-</br>
-</br>
+**Benchmark Experiments Overview**:
+Our study includes tests across eight primary model architectures, featuring common backbone models or composite models. We conducted a total of 1,263 experiments, showcasing the adaptability of various models to different molecular tasks.
+
+![Overview of Evaluations](figures/figure4.png)
+
 - `ckpts` - This folder contains checkpoints for finetuning
     - image_ckpts
         - [Swin Transformer-SwinOCSR](https://github.com/suanfaxiaohuo/SwinOCSR)
@@ -62,23 +51,22 @@ The figure annotates the base model parameter size for clarity. In total, \textb
         - [ViT](https://huggingface.co/google/vit-base-patch16-224)
     - text_ckpts
         - Encoder-only
+            - [BERT](https://huggingface.co/bert-base-uncased)
             - [SciBERT](https://huggingface.co/allenai/scibert_scivocab_uncased)
-            - []
-            - []
-            - []
+            - [RoBERTa](https://huggingface.co/roberta-base)
+            - [ChemBERTa](https://huggingface.co/seyonec/ChemBERTa-zinc-base-v1)
         - Decoder-only
-            - []
-            - []
-            - []
-            - []
+            - [GPT-2](https://huggingface.co/gpt2)
+            - [GPTNEO](https://huggingface.co/EleutherAI/gpt-neo-125m)
+            - [BioGPT](https://huggingface.co/microsoft/biogpt)
         - Encoder-Decoder
-            - [BART]
-            - [T5]
-            - [T511]
+            - [BART](https://huggingface.co/facebook/bart-base)
+            - [T5](https://huggingface.co/google/flan-t5-base)
+            - [T511](https://huggingface.co/google/flan-t5-base)
             - [MolT5-base](https://huggingface.co/laituan245/molt5-base)
 - `datasets`
-    - ChEBI-20-MM - Multi-modal molecular benchmark
-    - mpp - MoleculeNet benchmark
+    - ChEBI-20-MM - A multi-modal molecular benchmark dataset.
+    - mpp - MoleculeNet benchmark dataset.
 - `src`
     - `evaluations`
         - fingerprint_metrics.py
@@ -91,10 +79,10 @@ The figure annotates the base model parameter size for clarity. In total, \textb
         -'molecule' - Models of single-modal
         -'multimodal' - Models of multi-modal
         - metric.py - Metric loading
-        - __init__.py - Model initialization
+        - init.py - Model initialization
         - model_manager.py - Model loading
     - `utils`
-        - __init__.py - Common tool initialization
+        - init.py - Common tool initialization
         - xutils.py - Special tool initialization
     - `tasks`
         - dataset_manager.py - Code of ChEBI-20-MM dataloader
@@ -104,37 +92,35 @@ The figure annotates the base model parameter size for clarity. In total, \textb
         - splitters.py - Code of data splitting
         - MPP.py - Code of molecular property predictions
 
-**Below are the specific parameter explanations for tasks:**
-### property_prediction -- finetune.py 
-- `--modals`  
-  Modalities used in this task contain graph2d, SMILES, or both.
 
-- `--pool`  
-  Type: `str`  
-  Default: `avg`  
-  Pooling function of text and graph embeddings. Options: Avg or Max.
+**Detailed Parameter Explanations for Tasks**
 
-- `--fusion_mode`  
-  Type: `str`  
-  Default: `attention`  
-  If we use graph2d and SMILES modalities in this task, we can choose the fusion mode of the two embeddings. Options: Attention or Weights.
+### Common Command Parameters
+- `mode`: Select the operation mode. Options include `data_check`, `encoder_check`, and `eval`.
+- `dataset_toy`: Use a smaller, "toy" dataset for quick testing. Set to `toy`.
+- `graph_encoder`: Choose a graph encoder. Available options are `gin`, `gat`, `gcn`.
+- `text_encoder`: Select a text encoder. Options are `bert`, `scibert`, `roberta`, `chemberta`, `bart`, `t5`, `t511`, `molt5`.
+- `image_encoder`: Choose an image encoder from `swin`, `resnet`, `vit`.
+- `batch_size`: Set the batch size. Valid choices are 2, 4, 6, 8, 12, 16, 32.
 
-## References
-```
-[1]: Xu Z, Li J, Yang Z, et al. SwinOCSR: end-to-end optical chemical structure recognition using a Swin Transformer[J]. Journal of Cheminformatics, 2022, 14(1): 1-13.
-[2]: Su B, Du D, Yang Z, et al. A molecular multimodal foundation model associating molecule graphs with natural language[J]. arXiv preprint arXiv:2209.05481, 2022.(https://arxiv.org/abs/2209.05481)
-[3]: Edwards C, Lai T, Ros K, et al. Translation between molecules and natural language[J]. arXiv preprint arXiv:2204.11817, 2022.
-[4]: Beltagy I, Lo K, Cohan A. SciBERT: A pretrained language model for scientific text[J]. arXiv preprint arXiv:1903.10676, 2019.
-[5]: Li J, Li D, Savarese S, et al. Blip-2: Bootstrapping language-image pre-training with frozen image encoders and large language models[J]. arXiv preprint arXiv:2301.12597, 2023.
-```
+### Task-Specific Command Parameters
+- Execute `python task_manager.py` with the following options:
+    - `input_modal`: Define the input modality. Choices include `graph`, `SMILES`, `image`, `IUPAC`, `SELFIES`, `InChI`, `caption`.
+    - `output_modal`: Specify the output modality. Options are `SMILES`, `caption`, `IUPAC`.
+    - `task_name`: Select the task to perform. Available tasks are `molcap`, `mol2IUPAC`, `textmolgen`, `IUPAC2mol`, `image2smi`.
+    - `fusion_net`: Choose a fusion network strategy. Options include `add`, `weight_add`, `self_attention`.
+    - `decoder`: Select the decoder to use. Choices are `molt5`, `biogpt`, `gpt2`, `gptneo`.
+
+- For molecular retrieval, execute `python mol_retrieval.py`:
+    - The `input_modal` and `output_modal` parameters are the same as in `task_manager.py`.
+
+- For executing `python MPP.py` (Molecular Property Prediction):
+    - `input_modal`: Define the input modality. Choices include `graph`, `SMILES`, `SELFIES`, `InChI`.
+    - `dataset_name`: Specify the dataset for property prediction. Options include `tox21`, `bace`, `bbbp`, `toxcast`, `sider`, `clintox`, `esol`, `lipophilicity`, `freesolv`.
+    - `split`: Choose the data splitting method. Options are `scaffold` or `random`.
+    - `pool`: Determine the pooling strategy. Choose between `avg` and `max`.
+
 ## Citation
 ```
-@misc{liu2023gitmol,
-      title={GIT-Mol: A Multi-modal Large Language Model for Molecular Science with Graph, Image, and Text}, 
-      author={Pengfei Liu and Yiming Ren and Zhixiang Ren},
-      year={2023},
-      eprint={2308.06911},
-      archivePrefix={arXiv},
-      primaryClass={cs.LG}
-}
+
 ```
