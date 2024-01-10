@@ -128,7 +128,7 @@ Our study includes tests across eight primary model architectures, featuring com
 [4] Luo Y, Yang K, Hong M, et al. Molfm: A multimodal molecular foundation model[J]. arXiv preprint arXiv:2307.09484, 2023.
 ```
 ## Acknowledgments
-This project owes its inspiration to the ChEBI-20, a foundational dataset in the field of molecule generation and captioning, initially introduced by MolT5. The development of the ChEBI-20-MM dataset has been further enriched by additional data sourced from PubChem. We extend our sincere gratitude to Hugging Face for providing the initial model weights, which have been instrumental in our development process.
+The development of the ChEBI-20-MM dataset was inspired by the ChEBI-20 in molecule generation and captioning initiated by MolT5. Additional data information supplements are derived from PubChem. The initial model weights provided by Hugging Face are crucial components in our evaluation process.
 
 ## Citation
 ```
