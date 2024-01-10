@@ -38,7 +38,7 @@ An overview of model categories and architectures in molecular modeling and desi
 
 ## Evaluation Framework
 **Benchmark Experiments Overview**:
-Our study includes tests across eight primary model architectures, featuring common backbone models or composite models. We conducted a total of 1,263 experiments, showcasing the adaptability of various models to different molecular tasks.
+Our study includes tests across eight primary model architectures, featuring common backbone models or composite models. We conducted a total of 1,263 experiments, showcasing the adaptability of various models to different molecular tasks. Detailed experimental results are shown in our paper's Appendix.C Table 3-Table 7.
 
 ![Overview of Evaluations](figures/figure4.png)
 
