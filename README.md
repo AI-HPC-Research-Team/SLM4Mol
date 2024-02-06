@@ -1,4 +1,4 @@
-# Scientific Language Modeling in Molecule(SLM4Mol): A Quantitative Review of Large Language Models
+# Scientific Language Modeling (SLM4Mol): A Quantitative Review of Large Language Models in Molecular Science
 
 This analysis offers a comprehensive review of Transformer models and Large Language Models (LLMs) in molecular modeling and design. There are two key issues: how to quantify the match between model and data modalities and how to identify the knowledge-learning preferences of models. To address these challenges, we develop a multi-modal benchmark named ChEBI-20-MM and conduct 1263 experiments to assess the compatibility between different data modalities and model architectures. To provide a rigorous theoretical basis for the exploration of model knowledge acquisition, we present a statistically significant, interpretable approach that discovers the varying strengths of LLMs in understanding molecular knowledge.
 ![Overview of tasks in review.](figures/figure1.png)
