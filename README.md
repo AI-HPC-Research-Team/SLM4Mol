@@ -1,7 +1,6 @@
 # LLM4Mol_Analysis
 
-This analysis offers a comprehensive review of Transformer models and Large Language Models (LLMs) in molecular modeling and design. This project focuses on molecular recognition, generation, optimization, captioning, and property prediction. We have created the ChEBI-20-MM benchmark to conduct 1,263 experiments, aiming to identify key factors influencing these models' performance. Our end-to-end visual analysis also uncovers the chemical intuition embedded in these models.
-
+This analysis offers a comprehensive review of Transformer models and Large Language Models (LLMs) in molecular modeling and design. There are two key issues: how to quantify the match between model and data modalities and how to identify the knowledge-learning preferences of models. To address these challenges, we develop a multi-modal benchmark named ChEBI-20-MM and conduct 1263 experiments to assess the compatibility between different data modalities and model architectures. To provide a rigorous theoretical basis for the exploration of model knowledge acquisition, we present a statistically significant, interpretable approach that discovers the varying strengths of LLMs in understanding molecular knowledge.
 ![Overview of tasks in review.](figures/figure1.png)
 
 **Paradigm of the Review**:
@@ -23,20 +22,21 @@ Download links:
 - [ChEBI-20-MM](https://huggingface.co/datasets/liupf/ChEBI-20-MM)
 - [MoleculeNet Datasets](https://moleculenet.org/datasets-1)
 
+Visualization of Data Source Suitability and Chemical Space Diversity:
 ![Visualization of Data Source Suitability and Chemical Space Diversity.](figures/figure3.png)
 
 ## Review of Models
+![Timeline of key developments](figures/figure2.png)
 ### Developments and Architectures of Models
 A timeline illustrating key developments in transformer-based models for molecular modeling and design.
-- **a. Timeline of the key developments of LLMs**,with models based on the Transformer architecture differentiated by various colors to denote the backbone. 
+- **a. Timeline of the key developments of LLMs**, with models based on the Transformer architecture differentiated by various colors to denote the backbone. 
 - **b. Tasks and Models**: Relationship between six downstream tasks and model architectures.
 - **c. Encoder-Decoder Model Architectures**: Three main frameworks: Text-Text, Graph-Text, and Image-Text, each suited for specific molecular tasks.
 
-![Timeline of key developments](figures/figure2.png)
 
 ## Evaluation Framework
 **Benchmark Experiments Overview**:
-Our study includes tests across eight primary model architectures, featuring common backbone models or composite models. We conducted a total of 1,263 experiments, showcasing the adaptability of various models to different molecular tasks. Detailed experimental results are shown in our paper's Appendix.C Table 3-Table 7.
+Our study includes tests across eight primary model architectures, featuring common backbone models or composite models. We conducted a total of 1,263 experiments, showcasing the adaptability of various models to different molecular tasks. Detailed experimental results are shown in our paper's Appendix. C Table 3-Table 7.
 
 ![Overview of Experiments](figures/figure4.png)
 
@@ -127,6 +127,22 @@ denotes output modalities.
 - **c. Encoders, Pooling Mechanisms, and Retrieval Performance in Embedding Tasks.** Alongside model rankings, the figure indicates that average pooling is a preferred choice for the pooling layer. Additionally, from a molecular retrieval
 
 ## Analysis of Model Knowledge-Learning Preferences
+Our analysis aims to discern model preferences for knowledge acquisition. To enhance interpretability, we focus on the IUPAC-to-caption mapping process, which is closely aligned with natural language tasks. Figure. a displays the token mapping matrix after normalization and rearrangement based on the total counts of rows and columns, selecting the top 20 high-frequency chemical tokens in IUPAC names and captions. General high-frequency mappings, such as oxy, methyl, and hydroxy, appear extensively across various tokens. Traditional filtering methods might capture many of these mappings yet potentially exclude those with specific contextual significance.
+
+To find specific high-frequency mapping pairs, as shown in Figure. b, at T = 2.788, the Z-test reaches its maximum value of 2.405, corresponding to a confidence level of 98.2%. After identifying 21 specific token mapping pairs and removing those with identical row and column names, we are left with 16 unique pairs. By consolidating mappings with the same leading or trailing tokens, we obtain the following 9 groups of token mappings:
+
+- `['ent']` → `['methyl']`
+- `['lan', 'phospho']` → `['phosphat']`
+- `['ace']` → `['amino']`
+- `['ryl']` → `['acy', 'ate', 'acid', 'conjug']`
+- `['hydr']` → `['one']`
+- `['cycl']` → `['hydroxy', 'one']`
+- `['phen']` → `['group']`
+- `['min']` → `['ine']`
+- `['hydroxy']` → `['acid', 'mono']`
+
+These mapping patterns illustrate the diversity and specificity of chemical token relationships captured through our analysis. Following these mapping patterns, we randomly select corresponding molecular IUPAC names and their captions, as shown in Figure. c.
+
 ![Co-occurrence Patterns and Insights](figures/figure6.png)
 - **a. IUPAC-to-Caption Tokens Mapping Matrix of T5.** This matrix presents the performance in text generation and property prediction tasks. The vertical axis represents input modalities, while the horizontal axis
 denotes output modalities.
