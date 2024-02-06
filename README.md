@@ -2,7 +2,7 @@
 
 This analysis offers a comprehensive review of Transformer models and Large Language Models (LLMs) in molecular modeling and design. This project focuses on molecular recognition, generation, optimization, captioning, and property prediction. We have created the ChEBI-20-MM benchmark to conduct 1,263 experiments, aiming to identify key factors influencing these models' performance. Our end-to-end visual analysis also uncovers the chemical intuition embedded in these models.
 
-![Overview of tasks in review](figures/figure1.pdf)
+![Overview of tasks in review.](figures/figure1.png)
 
 **Paradigm of the Review**:
 - **a. Molecular Modeling and Design Tasks**: Showcasing six task types, their standard modeling methods, and data examples.
@@ -23,6 +23,8 @@ Download links:
 - [ChEBI-20-MM](https://huggingface.co/datasets/liupf/ChEBI-20-MM)
 - [MoleculeNet Datasets](https://moleculenet.org/datasets-1)
 
+![Visualization of Data Source Suitability and Chemical Space Diversity.](figures/figure3.png)
+
 ## Review of Models
 ### Developments and Architectures of Models
 A timeline illustrating key developments in transformer-based models for molecular modeling and design.
@@ -30,14 +32,15 @@ A timeline illustrating key developments in transformer-based models for molecul
 - **b. Tasks and Models**: Relationship between six downstream tasks and model architectures.
 - **c. Encoder-Decoder Model Architectures**: Three main frameworks: Text-Text, Graph-Text, and Image-Text, each suited for specific molecular tasks.
 
-![Timeline of key developments](figures/figure2 timeline.pdf)
+![Timeline of key developments](figures/figure2.png)
 
 ## Evaluation Framework
 **Benchmark Experiments Overview**:
 Our study includes tests across eight primary model architectures, featuring common backbone models or composite models. We conducted a total of 1,263 experiments, showcasing the adaptability of various models to different molecular tasks. Detailed experimental results are shown in our paper's Appendix.C Table 3-Table 7.
 
-![Overview of Evaluations](figures/figure4.png)
+![Overview of Experiments](figures/figure4.png)
 
+## Code
 ### `ckpts` 
 - image_ckpts
     - [Swin Transformer-SwinOCSR](https://github.com/suanfaxiaohuo/SwinOCSR)
@@ -115,6 +118,21 @@ Our study includes tests across eight primary model architectures, featuring com
     - `dataset_name`: Specify the dataset for property prediction. Options include `tox21`, `bace`, `bbbp`, `toxcast`, `sider`, `clintox`, `esol`, `lipophilicity`, `freesolv`.
     - `split`: Choose the data splitting method. Options are `scaffold` or `random`.
     - `pool`: Determine the pooling strategy. Choose between `avg` and `max`.
+      
+## Results
+![Results of Benchmark](figures/figure5.png)
+- **a. Modal Transition Probability Matrix.** This matrix presents the performance in text generation and property prediction tasks. The vertical axis represents input modalities, while the horizontal axis
+denotes output modalities.
+- **b. Encoders and Decoders in Nine Text-to-Text Tasks.** This illustration highlights the frequency of various models appearing in the top 5 rankings. The T5 series models exhibit a dominant presence.
+- **c. Encoders, Pooling Mechanisms, and Retrieval Performance in Embedding Tasks.** Alongside model rankings, the figure indicates that average pooling is a preferred choice for the pooling layer. Additionally, from a molecular retrieval
+
+## Analysis of Model Knowledge-Learning Preferences
+![Co-occurrence Patterns and Insights](figures/figure6.png)
+- **a. IUPAC-to-Caption Tokens Mapping Matrix of T5.** This matrix presents the performance in text generation and property prediction tasks. The vertical axis represents input modalities, while the horizontal axis
+denotes output modalities.
+- **b. Threshold T Analysis.** There are 100 thresholds within the range [0,3] for T . As the threshold increases, the criteria for selecting
+specific high-frequency pairs become more stringent, reducing their number while also affecting significance levels.
+- **c. Examples of T5 Knowledge-Learning Preferences.** 
 
 ## References
 ```
