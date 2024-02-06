@@ -2,7 +2,7 @@
 
 This analysis offers a comprehensive review of Transformer models and Large Language Models (LLMs) in molecular modeling and design. This project focuses on molecular recognition, generation, optimization, captioning, and property prediction. We have created the ChEBI-20-MM benchmark to conduct 1,263 experiments, aiming to identify key factors influencing these models' performance. Our end-to-end visual analysis also uncovers the chemical intuition embedded in these models.
 
-![Overview of tasks in review](figures/figure1.png)
+![Overview of tasks in review](figures/figure1.pdf)
 
 **Paradigm of the Review**:
 - **a. Molecular Modeling and Design Tasks**: Showcasing six task types, their standard modeling methods, and data examples.
@@ -24,17 +24,13 @@ Download links:
 - [MoleculeNet Datasets](https://moleculenet.org/datasets-1)
 
 ## Review of Models
-### Developments of Models
+### Developments and Architectures of Models
 A timeline illustrating key developments in transformer-based models for molecular modeling and design.
+- **a. Timeline of the key developments of LLMs**,with models based on the Transformer architecture differentiated by various colors to denote the backbone. 
+- **b. Tasks and Models**: Relationship between six downstream tasks and model architectures.
+- **c. Encoder-Decoder Model Architectures**: Three main frameworks: Text-Text, Graph-Text, and Image-Text, each suited for specific molecular tasks.
 
-![Timeline of key developments](figures/figure2.png)
-
-### Categories and Architectures of Models
-An overview of model categories and architectures in molecular modeling and design:
-- **a. Tasks and Models**: Relationship between six downstream tasks and model architectures.
-- **b. Encoder-Decoder Model Architectures**: Three main frameworks: Text-Text, Graph-Text, and Image-Text, each suited for specific molecular tasks.
-
-![Model architectures](figures/figure3.png)
+![Timeline of key developments](figures/figure2 timeline.pdf)
 
 ## Evaluation Framework
 **Benchmark Experiments Overview**:
