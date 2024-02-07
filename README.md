@@ -1,6 +1,7 @@
 # Scientific Language Modeling (SLM4Mol): A Quantitative Review of Large Language Models in Molecular Science
 
-This analysis offers a comprehensive review of Transformer models and Large Language Models (LLMs) in molecular modeling and design. There are two key issues: how to quantify the match between model and data modalities and how to identify the knowledge-learning preferences of models. To address these challenges, we develop a multi-modal benchmark named ChEBI-20-MM and conduct 1263 experiments to assess the compatibility between different data modalities and model architectures. To provide a rigorous theoretical basis for the exploration of model knowledge acquisition, we present a statistically significant, interpretable approach that discovers the varying strengths of LLMs in understanding molecular knowledge.
+This analysis offers a comprehensive review of Transformer models and Large Language Models (LLMs) in molecular modeling and design. Large language models (LLMs) offer a fresh approach to tackle scientific problems from a natural language processing (NLP) perspective, introducing a research paradigm called scientific language modeling (SLM). However, two key issues remain: how to quantify the match between model and data modalities and how to identify the knowledge-learning preferences of models. To address these challenges, we propose a multi-modal benchmark, named ChEBI-20-MM, and perform 1263 experiments to assess the model's compatibility with data modalities and knowledge acquisition. Through the modal transition probability matrix, we provide insights into the most suitable modalities for tasks. Furthermore, we introduce a statistically interpretable approach to discover context-specific knowledge mapping by localized feature filtering.
+
 ![Overview of tasks in review.](figures/figure1.png)
 
 **Paradigm of the Review**:
@@ -162,5 +163,12 @@ The development of the ChEBI-20-MM dataset was inspired by the ChEBI-20 in molec
 
 ## Citation
 ```
-
+@misc{liu2024scientific,
+      title={Scientific Language Modeling: A Quantitative Review of Large Language Models in Molecular Science}, 
+      author={Pengfei Liu and Jun Tao and Zhixiang Ren},
+      year={2024},
+      eprint={2402.04119},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG}
+}
 ```
