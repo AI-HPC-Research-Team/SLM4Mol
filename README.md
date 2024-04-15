@@ -1,6 +1,6 @@
 # Scientific Language Modeling (SLM4Mol): A Quantitative Review of Large Language Models in Molecular Science
-[![arXiv](https://img.shields.io/badge/arXiv-2402.04119-b31b1b.svg)](https://arxiv.org/abs/2402.04119) 
-[![HuggingFace](https://img.shields.io/badge/HuggingFace-datasets-blue.svg)](https://huggingface.co/datasets/liupf/ChEBI-20-MM)
+[![arXiv](https://img.shields.io/badge/arXiv-2402.04119-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2402.04119) 
+[![HuggingFace](https://img.shields.io/badge/🤗-ChEBI%2020%20MM-blue.svg)](https://huggingface.co/datasets/liupf/ChEBI-20-MM)
 
 
 This analysis offers a comprehensive review of Transformer models and Large Language Models (LLMs) in molecular modeling and design. Large language models (LLMs) offer a fresh approach to tackle scientific problems from a natural language processing (NLP) perspective, introducing a research paradigm called scientific language modeling (SLM). However, two key issues remain: how to quantify the match between model and data modalities and how to identify the knowledge-learning preferences of models. To address these challenges, we propose a multi-modal benchmark, named ChEBI-20-MM, and perform 1263 experiments to assess the model's compatibility with data modalities and knowledge acquisition. Through the modal transition probability matrix, we provide insights into the most suitable modalities for tasks. Furthermore, we introduce a statistically interpretable approach to discover context-specific knowledge mapping by localized feature filtering.
