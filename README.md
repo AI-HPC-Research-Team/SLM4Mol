@@ -1,7 +1,9 @@
-# Scientific Language Modeling (SLM4Mol): A Quantitative Review of Large Language Models in Molecular Science
+# A quantitative analysis of knowledge-learning preferences in large language models in molecular science
 [![arXiv](https://img.shields.io/badge/arXiv-2402.04119-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2402.04119) 
+[![DOI](https://img.shields.io/badge/DOI-10.1038%2Fs42256--024--00977--6-blue.svg)](https://doi.org/10.1038/s42256-024-00977-6)
 [![HuggingFace](https://img.shields.io/badge/🤗-ChEBI%2020%20MM-blue.svg)](https://huggingface.co/datasets/liupf/ChEBI-20-MM)
 
+**This article was published in Nature Machine Intelligence in January 2025.**
 
 This analysis offers a comprehensive review of Transformer models and Large Language Models (LLMs) in molecular modeling and design. Large language models (LLMs) offer a fresh approach to tackle scientific problems from a natural language processing (NLP) perspective, introducing a research paradigm called scientific language modeling (SLM). However, two key issues remain: how to quantify the match between model and data modalities and how to identify the knowledge-learning preferences of models. To address these challenges, we propose a multi-modal benchmark, named ChEBI-20-MM, and perform 1263 experiments to assess the model's compatibility with data modalities and knowledge acquisition. Through the modal transition probability matrix, we provide insights into the most suitable modalities for tasks. Furthermore, we introduce a statistically interpretable approach to discover context-specific knowledge mapping by localized feature filtering.
 
@@ -166,12 +168,12 @@ The development of the ChEBI-20-MM dataset was inspired by the ChEBI-20 in molec
 
 ## Citation
 ```
-@misc{liu2024scientific,
-      title={Scientific Language Modeling: A Quantitative Review of Large Language Models in Molecular Science}, 
-      author={Pengfei Liu and Jun Tao and Zhixiang Ren},
-      year={2024},
-      eprint={2402.04119},
-      archivePrefix={arXiv},
-      primaryClass={cs.LG}
+@article{liu2025quantitative,
+  title={A quantitative analysis of knowledge-learning preferences in large language models in molecular science},
+  author={Liu, Pengfei and Tao, Jun and Ren, Zhixiang},
+  journal={Nature Machine Intelligence},
+  pages={1--13},
+  year={2025},
+  publisher={Nature Publishing Group UK London}
 }
 ```
